@@ -1,0 +1,7 @@
+import { ImageResponse } from "next/og";
+export const alt = "Mark Frederick (Derick) Boado — Code, Data & Creativity";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+export default function OpenGraphImage() {
+  return new ImageResponse(<div style={{ width: "100%", height: "100%", background: "#0B0F19", color: "#F4F6FA", padding: "55px 75px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "sans-serif", backgroundImage: "radial-gradient(ellipse at 100% 0%, #292158 0%, #0B0F19 65%)" }}><div style={{ display: "flex", justifyContent: "space-between", fontSize: 21 }}><span>DERICK / CODE · DATA · CREATE</span><span style={{ color: "#9BA7BB", fontSize: 15 }}>CALOOCAN CITY, PHILIPPINES</span></div><div style={{ display: "flex", flexDirection: "column", fontSize: 77, letterSpacing: -4, fontWeight: 700, lineHeight: 1.02 }}><span>TURNING IDEAS</span><span>INTO DIGITAL</span><span style={{ color: "#A79BFF" }}>EXPERIENCES.</span><span style={{ fontSize: 26, letterSpacing: -0.5, fontWeight: 400, color: "#B6C2D7", marginTop: 20 }}>Through code, data, and creativity.</span></div><div style={{ display: "flex", alignItems: "center", gap: 15, fontSize: 18, color: "#9BA7BB" }}><span style={{ background: "#22D3EE", width: 7, height: 7, borderRadius: "50%" }} /><span>Mark Frederick “Derick” Boado · Aspiring developer & creative</span></div></div>, size);
+}

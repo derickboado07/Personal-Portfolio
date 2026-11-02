@@ -1,0 +1,45 @@
+.hero-personal .hero-brand-continuation { display: block; margin-top: 22px; max-width: 560px; font-size: clamp(18px, 2.1vw, 29px); font-weight: 400; line-height: 1.4; letter-spacing: -.035em; color: #a7b2c6; }
+.hero-personal .hero-brand-continuation > span { color: #e3e5f1; }
+.hero-personal .hero-brand-continuation > span:nth-child(2) { color: #9ed6e2; }
+.hero-personal .hero-brand-continuation > span:last-child { color: #beb0ff; }
+.hero-personal .hero-intro { max-width: 470px; }
+.hero-personal .hero-eyebrow { letter-spacing: .035em; }
+.hero-personal .identity-line { gap: 8px; }
+.hero-personal .identity-role { min-width: 0; font-size: 13px; }
+.hero-personal .identity-role > span { white-space: nowrap; }
+.hero-personal .hero-availability { display: flex; align-items: flex-start; gap: 8px; margin-top: 20px; color: #a9b6c8; font-size: 10px; line-height: 1.6; }
+.hero-personal .hero-availability > .status-dot { width: 5px; height: 5px; margin-top: 5px; }
+.hero-personal .hero-data-note { right: -7px; }
+.hero-personal .hero-data-note svg { color: #83d7e0; }
+.hero-personal .hero-data-note strong { color: #b7dfdf; }
+.hero-personal .visual-caption { letter-spacing: .1em; }
+.hero-personal .hero-bottom > p { font-size: 7px; }
+@media (max-width: 1200px) and (min-width: 761px) {
+  .hero-personal .identity-line { flex-wrap: wrap; gap: 2px 8px; }
+  .hero-personal .identity-prefix { width: 100%; }
+  .hero-personal .hero-topline { font-size: 8px; }
+}
+@media (max-width: 760px) {
+  .hero-personal .hero-brand-continuation { max-width: 450px; margin-top: 18px; font-size: clamp(19px, 4.6vw, 27px); }
+  .hero-personal .hero-topline { gap: 12px; font-size: 6.5px; }
+  .hero-personal .hero-topline > span:first-child { gap: 6px; }
+  .hero-personal .hero-topline > span:last-child { font-size: 6px; flex-shrink: 0; }
+  .hero-personal .hero-intro { margin-top: 17px; }
+  .hero-personal .hero-availability { margin-top: 16px; font-size: 10px; max-width: 350px; }
+  .hero-personal .identity-line { flex-wrap: wrap; gap: 3px 8px; }
+  .hero-personal .identity-prefix { width: 100%; }
+  .hero-personal .identity-role { max-width: calc(100% - 15px); font-size: 14px; }
+  .hero-personal .hero-data-note { right: -2px; font-size: 6px; }
+  .hero-personal .visual-index { font-size: 6.5px; }
+}
+@media (max-width: 359px) {
+  .hero-personal .hero-topline { font-size: 6px; }
+  .hero-personal .hero-topline > span:last-child { font-size: 5.5px; }
+  .hero-personal .hero-eyebrow { font-size: 6.5px; gap: 5px; }
+  .hero-personal .hero-brand-continuation { font-size: 18px; }
+  .hero-personal .identity-role { font-size: 13px; }
+  .hero-personal .hero-ctas .button { font-size: 10px; gap: 8px; padding-inline: 13px; }
+  .hero-personal .hero-data-note { font-size: 5px; padding: 8px; gap: 6px; }
+  .hero-personal .hero-data-note > svg { width: 12px; }
+  .hero-personal .visual-caption { font-size: 6px; }
+}

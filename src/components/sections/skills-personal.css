@@ -1,0 +1,8 @@
+.personal-skills .toolkit-tabs { min-width: 0; }
+.personal-skills .toolkit-tabs button { padding-inline: 21px; gap: 10px; }
+.personal-skills .skill-tab-short { display: none; }
+.personal-skills .tab-dot { margin-left: 5px; }
+.personal-skills .toolkit-body { min-height: 350px; }
+@media (max-width: 1100px) { .personal-skills .toolkit-top { padding-right: 0; }.personal-skills .toolkit-caption { display: none; }.personal-skills .toolkit-tabs { flex: 1; }.personal-skills .toolkit-tabs button { flex: 1; justify-content: center; padding-inline: 18px; } }
+@media (max-width: 760px) { .personal-skills .toolkit-tabs button { padding: 17px 13px; font-size: 11px; gap: 8px; }.personal-skills .skill-tab-file { display: none; }.personal-skills .skill-tab-short { display: inline; }.personal-skills .toolkit-body { min-height: 380px; }.personal-skills .tab-dot { margin-left: 3px; } }
+@media (max-width: 359px) { .personal-skills .toolkit-tabs button { padding: 16px 8px; font-size: 10px; gap: 6px; }.personal-skills .toolkit-tabs button svg { width: 13px; }.personal-skills .tab-dot { width: 3px; height: 3px; margin-left: 1px; } }
