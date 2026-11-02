@@ -48,8 +48,8 @@ export const profile = {
   availability: "Seeking an internship or entry-level opportunity",
   opportunitySummary: "My first priority is a web development, software development, or IT internship or entry-level role. I’m also interested in business and data analytics opportunities, and open to freelance websites, business systems, Power BI dashboards, and creative content.",
   // Add confirmed contact details. Empty values never render as dead links.
-  email: "",
-  links: { github: "", linkedin: "", videoPortfolio: "" },
+  email: "derickboado1@gmail.com",
+  links: { github: "https://github.com/derickboado07", linkedin: "", videoPortfolio: "" },
   // Add an actual file under public/assets, then set e.g. /assets/derick-boado-cv.pdf.
   cvPath: "",
   portrait: "",
