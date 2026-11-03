@@ -9,6 +9,7 @@ export type ProjectScreenshot = {
 };
 
 export type Project = {
+  platform: "web" | "mobile";
   slug: string;
   number: string;
   title: string;
@@ -39,11 +40,12 @@ export const profile = {
   location: "Caloocan City, Philippines",
   education: "BS Information Technology",
   school: "Global Reciprocal Colleges",
-  educationNote: "BSIT student · last confirmed level: third year",
+  educationNote: "Fourth-year BSIT student",
   brandStatement: "Turning ideas into digital experiences through code, data, and creativity.",
   introduction: "I’m Derick, an aspiring developer in Caloocan City. I build practical web systems, explore business data with Power BI, and communicate ideas through video and visuals.",
-  biography: "My name is Mark Frederick Boado, but friends call me Derick. I’m pursuing BS Information Technology at Global Reciprocal Colleges. I enjoy figuring out how things work—and how to make them more useful for the people who rely on them.",
+  biography: "My name is Mark Frederick Boado, but friends call me Derick. I’m a fourth-year BS Information Technology student at Global Reciprocal Colleges. I enjoy figuring out how things work—and how to make them more useful for the people who rely on them.",
   approach: "Building ARAT Coffee’s ordering and inventory system connected programming to real business needs. Studying Power BI taught me to ask what the data is telling us. Editing videos gives me another way to make an idea clear. Those three interests shape how I work: build the tool, understand the information, and communicate it well.",
+  enrollmentProject: "Our GRC Connect team capstone explores an automated enrollment system with predictive analytics, bringing together enrollment, schedules, advising, and approvals. I contributed to process analysis, planning, requirements, and system diagrams. The project is undergoing major revisions.",
   roles: ["Aspiring Web Developer", "Software Developer", "Business Analytics Practitioner", "Video Editor"],
   availability: "Seeking an internship or entry-level opportunity",
   opportunitySummary: "My first priority is a web development, software development, or IT internship or entry-level role. I’m also interested in business and data analytics opportunities, and open to freelance websites, business systems, Power BI dashboards, and creative content.",
@@ -95,20 +97,23 @@ export const creativePractice = {
   publicationNote: "I’m selecting completed work for this collection. Posters remain illustrative until the final videos and thumbnails are added.",
 };
 
-export const navigation = [
+export type NavigationItem = {
+  label: string;
+  id: string;
+  children?: { label: string; id: string }[];
+};
+
+export const navigation: NavigationItem[] = [
   { label: "Home", id: "home" },
-  { label: "About", id: "about" },
-  { label: "Projects", id: "projects" },
-  { label: "Analytics", id: "analytics" },
-  { label: "Video Work", id: "video-work" },
+  { label: "About", id: "about", children: [{ label: "More About Me", id: "more-about-me" }, { label: "Journey", id: "journey" }] },
+  { label: "Projects", id: "projects", children: [{ label: "Web Development", id: "web-development" }, { label: "Mobile Application", id: "mobile-application" }, { label: "Video Works", id: "video-work" }] },
   { label: "Skills", id: "skills" },
-  { label: "Journey", id: "journey" },
   { label: "Contact", id: "contact" },
 ];
 
 export const projects: Project[] = ([
   {
-    slug: "enrollment-system", number: "02", title: "A Development of an Automated Enrollment System with Predictive Analytics", shortTitle: "Enrollment, reimagined.",
+    platform: "web", slug: "enrollment-system", number: "02", title: "A Development of an Automated Enrollment System with Predictive Analytics", shortTitle: "Enrollment, reimagined.",
     category: "TEAM CAPSTONE · UNDER REFINEMENT", overview: "A team-based academic capstone exploring a more connected enrollment process at Global Reciprocal Colleges.",
     problem: "Enrollment involves interconnected student records, course requirements, and schedules. Managing these independently can make planning difficult.",
     solution: "Our team is developing an enrollment system spanning student records, advising assistance, prerequisite checks, schedule recommendations, digital forms, approval tracking, and reporting. The technical stack includes PHP, JavaScript, MySQL, and Python, with FastAPI planned for the machine-learning service. The project underwent final defense in October 2026 and requires major revisions to refine its extensive scope.",
@@ -136,7 +141,7 @@ export const projects: Project[] = ([
     ],
   },
   {
-    slug: "arat-coffee", number: "01", title: "ARAT Coffee — Smart Ordering and Inventory System", shortTitle: "Good coffee. Better flow.",
+    platform: "web", slug: "arat-coffee", number: "01", title: "ARAT Coffee — Smart Ordering and Inventory System", shortTitle: "Good coffee. Better flow.",
     category: "BUSINESS WEB APPLICATION", overview: "A website and business system I developed to connect ARAT Coffee’s orders, inventory, and sales reporting.",
     problem: "Orders change stock levels, and transactions generate sales data. A useful business system needs to keep those pieces connected so daily operations and reporting make sense together.",
     solution: "I developed ARAT Coffee’s website and web-based Smart Ordering and Inventory System using PHP, JavaScript, HTML, CSS, MySQL, and Chart.js. It brings ordering and transactions, inventory monitoring, sales reporting, product and menu management, and administrative tools into one system. Real-time inventory management and sales reporting are the two core features.",
@@ -151,14 +156,14 @@ export const projects: Project[] = ([
     ],
   },
   {
-    slug: "smartload", number: "03", title: "SmartLoad", shortTitle: "A smarter academic load.",
+    platform: "web", slug: "smartload", number: "03", title: "SmartLoad", shortTitle: "A smarter academic load.",
     category: "EDUCATION · PROTOTYPE", overview: "Exploring a more structured way to assign faculty teaching loads.",
     problem: "Faculty load assignment requires balancing teaching responsibilities with academic requirements and evaluation.",
     solution: "A PHP and MySQL prototype exploring faculty load assignment with AI-assisted evaluation. Outputs require human review; the prototype is not presented as a production decision system.",
     role: "Student developer", status: "Prototype", technologies: ["PHP", "MySQL", "AI-assisted evaluation"], accent: "cyan",
   },
   {
-    slug: "flutter-firebase", number: "04", title: "Flutter / Firebase Applications", shortTitle: "Small screens. Big ideas.",
+    platform: "mobile", slug: "flutter-firebase", number: "04", title: "Flutter / Firebase Applications", shortTitle: "Small screens. Big ideas.",
     category: "MOBILE · STUDENT PROJECTS", overview: "Hands-on explorations of connected, interactive mobile experiences.",
     problem: "Mobile applications need interfaces that are easy to navigate, alongside reliable authentication and data flows.",
     solution: "Student projects using Flutter and Dart for interactive mobile interfaces, with Firebase Authentication and Firestore for connected app features.",
@@ -196,7 +201,7 @@ export const videos: Video[] = [
 export const skillGroups = [
   { id: "development", label: "Development", filename: "development.ts", description: "The building blocks behind functional digital experiences.", tracks: [
     { label: "01 / FRONTEND", skills: ["HTML", "CSS", "JavaScript", "Bootstrap", "Tailwind CSS"] },
-    { label: "02 / LANGUAGES", skills: ["PHP", "Python", "C#", "SQL"] },
+    { label: "02 / LANGUAGES", skills: ["PHP", "Python", "SQL"] },
     { label: "03 / DATA & MOBILE", skills: ["MySQL", "Firebase", "Flutter", "Dart"] },
   ] },
   { id: "analytics", label: "Business analytics", filename: "analytics.pbix", description: "Academic Power BI practice, with business questions at the center.", tracks: [
@@ -212,7 +217,7 @@ export const skillGroups = [
 ] as const;
 
 export const journey = [
-  { period: "EDUCATION · BS INFORMATION TECHNOLOGY", title: "Learning the foundations. Applying them.", organization: "Global Reciprocal Colleges", description: "Pursuing BS Information Technology, with third year as my last confirmed year level. My studies connect programming, databases, system development, and business analytics with hands-on projects." },
+  { period: "EDUCATION · BS INFORMATION TECHNOLOGY", title: "Learning the foundations. Applying them.", organization: "Global Reciprocal Colleges", description: "I’m a fourth-year BS Information Technology student. My studies connect programming, databases, system development, and business analytics with hands-on projects." },
   { period: "OCTOBER 2026 · CAPSTONE DEFENSE", title: "Refining the scope, strengthening the system.", organization: "Team enrollment-system capstone", description: "Our Automated Enrollment System with Predictive Analytics underwent final defense in October 2026. Major revisions are in progress following feedback on the project’s extensive scope. My documented involvement spans process analysis, planning, requirements, and system diagrams." },
   { period: "BUSINESS & ENTREPRENEURSHIP", title: "Understanding the work behind the workflow.", organization: "ARAT Coffee & Graham Nest", description: "Developing ARAT Coffee’s ordering and inventory system helped me apply software to business needs. Starting a small Graham Nest dessert venture brought first-hand lessons in sales, costs, and customer relationships." },
   { period: "COMMUNITY & LEADERSHIP", title: "Learning to lead by serving.", organization: "CCF Grace Park", description: "Serving in ministries and leading and facilitating youth discipleship groups gives me room to practice communication, responsibility, teamwork, and care for others." },
@@ -225,8 +230,10 @@ export const professionalExperience = [
 ];
 
 export const site = {
-  title: "Derick Boado — Code, Data & Creativity",
-  description: "Mark Frederick (Derick) Boado is an aspiring developer in Caloocan City, Philippines. Explore practical web systems, Power BI analytics, and creative digital work.",
+  name: "DBCreates",
+  tagline: "Code. Data. Create.",
+  title: "DBCreates | Derick Boado — Developer, Analytics & Creative",
+  description: "The personal portfolio of Derick Boado, showcasing web development, business analytics, and creative digital projects.",
   // Set NEXT_PUBLIC_SITE_URL in production for canonical URLs, Open Graph, robots, and sitemap.
-  url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://dbcreates.vercel.app",
 };

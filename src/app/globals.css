@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../components/ui/branding.css";
 
 @theme inline {
   --color-background: var(--background);
@@ -10,7 +11,7 @@
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
-:root { --background: #0b0f19; --foreground: #f4f6fa; --surface: #141b2b; --muted: #9ba7bb; --accent: #6d5ef8; --cyan: #22d3ee; --coral: #ff6b6b; --line: #ffffff13; --font-body: var(--font-plex), Arial, sans-serif; color-scheme: dark; }
+:root { --background: #0b1220; --foreground: #f4f6fa; --surface: #141b2b; --muted: #9ba7bb; --accent: #6d5ef8; --cyan: #00d9f5; --brand-lavender: #c9beff; --brand-periwinkle: #8b93b8; --coral: #ff6b6b; --line: #ffffff13; --font-body: var(--font-plex), Arial, sans-serif; color-scheme: dark; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-body); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.65; }
@@ -55,11 +56,10 @@ section:focus { outline: none; }
 .skip-link:focus { top: 12px; }
 
 /* Navigation */
-.site-header { position: fixed; z-index: 50; top: 0; inset-inline: 0; background: #0b0f19db; backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
+.site-header { position: fixed; z-index: 50; top: 0; inset-inline: 0; background: #0b1220db; backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); }
 .nav-shell { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 87px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.brand-mark { font-size: 44px; font-weight: 700; letter-spacing: -.09em; line-height: 1; }
-.brand-mark > span { color: var(--cyan); }
+.brand-mark { font-size: 44px; font-weight: 600; letter-spacing: -.12em; line-height: 1; }
 .brand-words { display: flex; flex-direction: column; line-height: 1.5; gap: 1px; }
 .brand-words strong { font-size: 12px; font-weight: 600; letter-spacing: .15em; }
 .brand-words > span { font-family: Consolas, monospace; font-size: 8px; letter-spacing: .11em; color: var(--muted); }
@@ -187,9 +187,7 @@ section:focus { outline: none; }
 .about-portrait { max-width: 410px; }
 .portrait-frame { aspect-ratio: .93; position: relative; background: radial-gradient(ellipse at 50% 44%, #303454 0%, #181f30 48%, #141b2b 80%); border: 1px solid #ffffff1a; overflow: hidden; border-radius: 3px; }
 .portrait-grid { position: absolute; inset: 0; background-image: linear-gradient(#ffffff05 1px, transparent 1px), linear-gradient(90deg, #ffffff05 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse, black, transparent 80%); }
-.portrait-monogram { font-size: clamp(140px, 19vw, 260px); letter-spacing: -.12em; font-weight: 600; color: #beb7ff; position: absolute; top: 44%; left: 48%; transform: translate(-50%, -50%); line-height: 1; }
-.portrait-monogram > span { color: #7884af; }
-.portrait-monogram > i { color: var(--cyan); font-style: normal; }
+.portrait-monogram { font-size: clamp(140px, 19vw, 260px); letter-spacing: -.12em; font-weight: 600; position: absolute; top: 44%; left: 48%; transform: translate(-50%, -50%); line-height: 1; }
 .portrait-coordinate { position: absolute; top: 20px; left: 20px; font-size: 8px; color: var(--muted); }
 .portrait-placeholder { position: absolute; top: 22px; right: 17px; font-size: 7px; display: flex; align-items: center; gap: 5px; color: #a4a9c0; }
 .portrait-nameplate { position: absolute; inset: auto 0 0; padding: 23px; background: #0b0f1970; border-top: 1px solid var(--line); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; }

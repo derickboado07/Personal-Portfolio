@@ -1,5 +1,49 @@
 # Validation record
 
+## Theme script hydration warning — 2026-11-04
+
+Moved the synchronous theme initializer to the start of the body, before rendered page content. This prevents a script inserted into the document head by a browser extension from being mistaken for the theme script during React hydration, while retaining early theme initialization.
+
+Reproduced the warning in an isolated Next.js development copy by inserting a non-async script into the head before hydration. The warning was absent after the change in both the running development site and the production build with the same simulated insertion. Lint and production build passed. Chrome checks covered saved and system themes, theme selection before page content, storage failures, toggling and persistence, project routes, and no-JavaScript content. The actual browser extension was not available to the automated test. Scripts are in `.qa`.
+
+## About content and mobile navigation — 2026-11-04
+
+Updated the About and Journey text for fourth-year BSIT studies and added the GRC Connect team capstone, the documented contribution, and its revision status. Added More About Me and Journey categories in the About section and navigation. Mobile About and Projects groups now start collapsed and open when their row is selected.
+
+Lint and the production build passed. Chrome checks covered About category links and tabs, direct links, browser history, mobile disclosure behavior and keyboard focus, project navigation after a disclosure, responsive layouts in both themes from 320 to 1920 pixels, the no-JavaScript content fallback, and client errors. Mobile menus were additionally checked at widths from 320 to 1079 pixels in both themes. Local audit scripts and screenshots are in `.qa`.
+
+## Three project categories and video row — 2026-11-03
+
+Projects now groups web development, mobile application, and video work under matching navigation links and category tabs. The Flutter/Firebase student project appears under Mobile Application; the other three projects appear under Web Development. Video cards form one horizontally scrollable row while retaining all existing filters and dialogs. Project category links preserve browser history when returning from a case study.
+
+Lint and the production build passed. Chrome checks covered direct category links, the desktop and mobile navigation, keyboard controls, Back and Forward, returning from a project case study, video filters and dialogs, scrolling to the last video, and layouts from 320 to 1920 pixels in both themes. The no-JavaScript fallback and absence of client errors were checked. The local audit is in `.qa/three-project-categories-check.mjs`.
+
+## Project categories and single-row collection — 2026-11-03
+
+Web Development and Video Works now switch between their collections inside Projects. The four web projects share one horizontal, keyboard-scrollable row. Existing video filters, dialogs, and the Video Work navigation link remain available. The video entries still use coming-soon placeholders because no video files or links are configured.
+
+Lint and the optimized production build passed. Chrome checks covered desktop and mobile category navigation, direct links, browser history, keyboard controls, video filters and dialogs, reduced viewport widths from 320 to 1920 pixels in both themes, access to the last project card, no document overflow, and the no-JavaScript content fallback. The local audit and screenshots are in `.qa`.
+
+## Scroll text entrances and distinct logo colors — 2026-11-03
+
+Text now slides upward with a staggered fade and brief blur on entering the viewport, and replays after leaving and returning. The home-page text waits for the startup splash to dismiss. Shared section and project text uses the same behavior. Reduced-motion preferences disable these effects, and server-rendered text remains visible without JavaScript. The logo again uses separate bright lavender, periwinkle, and cyan colors, with darker colors for light mode.
+
+Lint, strict TypeScript checking, and the production build passed. Production Chrome verified splash coordination, all seven home sections, repeat entrances, direct section opening, distinct colors in both themes, no horizontal overflow at 320/390/768/1080/1440px, reduced-motion behavior, no-JavaScript visibility, project-page entrances, and no client errors. Settled screenshots were visually reviewed; the audit is in `.qa/text-animation-check.mjs`.
+
+## db.creates branding and readability — 2026-11-03
+
+Changed the navigation, footer, and project-page wordmarks to `db.creates`. The DB marks in navigation, About, and the splash use the hero's violet-to-cyan gradient, with a darker light-theme gradient. Removed C# from the displayed skills. Video cards, the featured reel, and the toolkit now have distinct surfaces, stronger borders/shadows, and larger labels. Body copy, facts, navigation, contact fields, captions, and footer text use larger readable sizes.
+
+Lint, strict TypeScript checking, and production build passed. Production Chrome checks confirmed branding, gradient marks, C# removal, text-size minimums, card shadows, no page/header/skills overflow at 320/360/390/560/768/1080/1200/1360/1440/1920px in both themes and all three skill tabs, video category filtering, media dialog dismissal, keyboard tab navigation, play-icon hover contrast, responsive project branding, and no client errors. Desktop and mobile screenshots of branding, skills, the featured reel, and video cards were visually reviewed. The audit script and screenshots are in `.qa`.
+
+## Loading animation and color themes — 2026-11-03
+
+Added a shared logo loading screen for opening, refreshing, and route loading, navigation icons, and light/dark controls on the home and project pages. Theme selection follows the device preference until a manual choice is saved. The loader supports reduced motion, keyboard dismissal, a maximum wait, and a no-JavaScript fallback.
+
+Lint, strict TypeScript checking, and the production build passed. Eleven production Chrome checks passed for initial/refresh loading, theme colors and persistence, browser theme metadata, responsive layout and navigation at 320/360/375/390/768/1080/1200/1360/1440/1920px in both themes, mobile menu/icons, project-page theme controls, system preference and cross-tab updates, reduced motion, delayed-resource dismissal, no-JavaScript content visibility, unavailable storage, and no client runtime errors. Desktop/mobile loading and light/dark screenshots were reviewed; scripts and screenshots are in the ignored `.qa` directory.
+
+The splash uses the site's existing fallback mark because custom DBCreates artwork is absent from `public/branding`. It will use the supplied monogram, primary logo, or wordmark when the documented branding files are added and the app is rebuilt. Contrast with that future artwork still needs visual verification.
+
 ## Personal identity, analytics, and experience update
 
 After the supplied personal profile was incorporated, lint, strict TypeScript checking, and the optimized production build passed. The public identity now emphasizes development first, then business analytics and creative work. The capstone is a team academic project under revision, and ARAT Coffee is the first featured business project.

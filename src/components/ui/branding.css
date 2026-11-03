@@ -1,0 +1,69 @@
+/* Keep artwork transparent, proportionate, and in fixed-size layout slots. */
+.brand-logo { position: relative; display: block; width: 168px; height: 40px; flex: none; }
+.brand-logo--footer { width: 180px; height: 44px; }
+.brand-logo--compact { width: 44px; height: 44px; }
+.brand-artwork { object-fit: contain; object-position: left center; }
+.brand-home { transition: opacity .2s ease; }
+.brand-home:hover { opacity: .85; }
+.brand-home:focus-visible { border-radius: 3px; }
+
+.brand-identity { display: inline-flex; flex-direction: column; gap: 4px; }
+.brand-wordmark { display: inline-flex; align-items: baseline; white-space: nowrap; line-height: 1; }
+.brand-wordmark .brand-mark { padding-right: .12em; }
+.brand-name { font-size: 27px; font-weight: 600; letter-spacing: -.045em; margin-left: 1px; color: var(--foreground); }
+.brand-tagline { color: var(--muted); font-family: Consolas, monospace; font-size: 10px; letter-spacing: .06em; line-height: 1.3; }
+.brand-monogram, .portrait-monogram { color: #c5b9ff; text-shadow: 0 0 18px #b7a2ff20; }
+.brand-monogram > span, .portrait-monogram > span { color: #9aa7d9; text-shadow: 0 0 16px #8d9fe51a; }
+.brand-monogram > i, .portrait-monogram > i { color: #00def5; font-style: normal; text-shadow: 0 0 13px #00def54d; }
+html[data-theme="light"] .brand-monogram,
+html[data-theme="light"] .portrait-monogram { color: #7050bd; text-shadow: none; }
+html[data-theme="light"] .brand-monogram > span,
+html[data-theme="light"] .portrait-monogram > span { color: #5368a5; text-shadow: none; }
+html[data-theme="light"] .brand-monogram > i,
+html[data-theme="light"] .portrait-monogram > i { color: #087f96; text-shadow: none; }
+
+.portrait-brand-logo { position: absolute; top: 43%; left: 50%; transform: translate(-50%, -50%); width: 54%; max-width: 220px; aspect-ratio: 1; transition: filter .25s ease; }
+.portrait-brand-logo .brand-artwork { object-position: center; }
+.portrait-frame:hover .portrait-brand-logo { filter: drop-shadow(0 0 14px #c9beff20); }
+.portrait-brand-tagline { position: absolute; top: 45px; left: 20px; color: var(--brand-lavender); font-size: 8px; }
+.footer-identity { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; flex-shrink: 0; }
+.footer-brand-tagline { color: var(--brand-periwinkle); font-size: 8px; }
+.footer-top > .footer-brand-description { max-width: 400px; color: var(--muted); }
+.footer-top .back-top { flex-shrink: 0; }
+
+@media (max-width: 760px) {
+  .brand-name { font-size: 24px; }
+  .brand-tagline { font-size: 9px; letter-spacing: .025em; }
+  .brand-logo--navigation { width: 140px; }
+  .brand-logo--navigation.brand-logo--responsive, .brand-logo--navigation.brand-logo--compact { width: 44px; height: 44px; }
+  .footer-top > .footer-brand-description { max-width: none; }
+}
+
+@media (max-width: 420px) {
+  .site-header .brand-tagline, .case-nav .brand-tagline { display: none; }
+  .site-header .brand-wordmark .brand-mark, .case-nav .brand-wordmark .brand-mark { font-size: 34px; }
+  .site-header .brand-name, .case-nav .brand-name { font-size: 20px; }
+}
+
+@media (max-width: 359px) {
+  .brand-logo--footer { width: 160px; }
+  .site-footer .footer-top { column-gap: 14px; }
+  .footer-top .back-top { gap: 8px; }
+  .portrait-brand-tagline { font-size: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-home, .portrait-brand-logo { transition: none; }
+}
+
+/* Shared architectural monogram, with fixed header dimensions. */
+.db-emblem { display: block; width: 46px; height: 46px; flex: none; overflow: visible; }
+.brand-wordmark:has(.db-emblem) { align-items: center; gap: 9px; }
+.brand-wordmark .db-emblem.brand-mark { width: 46px; height: 46px; padding: 0; }
+.db-emblem.loader-fallback-mark { width: 124px; height: 124px; padding: 0; }
+.db-emblem.portrait-monogram { width: 62%; height: auto; padding: 0; }
+@media (max-width: 420px) {
+  .site-header .brand-wordmark .db-emblem, .case-nav .brand-wordmark .db-emblem { width: 38px; height: 38px; }
+  .brand-wordmark:has(.db-emblem) { gap: 7px; }
+}
+

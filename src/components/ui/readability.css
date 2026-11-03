@@ -1,0 +1,103 @@
+/* Give actual portfolio content a readable scale; miniature artwork stays compact. */
+body .section-kicker { font-size: 12px; letter-spacing: .09em; line-height: 1.6; }
+body .section-description { font-size: 16px; }
+body .tag { font-size: 12px; }
+body .site-header .desktop-nav a { font-size: 13px; }
+body .site-header .nav-cta { font-size: 12px; }
+body .hero-personal .hero-topline { font-size: 11px; letter-spacing: .06em; gap: 16px; }
+body .hero-personal .hero-eyebrow { font-size: 11px; line-height: 1.7; flex-wrap: wrap; }
+body .hero-personal .hero-intro { font-size: 16px; line-height: 1.85; }
+body .hero-personal .hero-availability { font-size: 12px; color: var(--muted); }
+body .hero-personal .identity-prefix { font-size: 12px; color: var(--muted); }
+body .hero-personal .identity-role { font-size: 15px; }
+body .hero-personal .hero-bottom > p, body .hero-personal .scroll-cue { font-size: 11px; }
+body .hero-personal .hero-bottom { gap: 24px; }
+body .hero-personal .preview-window, body .hero-personal .code-window, body .hero-personal .hero-timeline { border-color: #b8aaff45; box-shadow: 0 18px 45px #00000033; }
+
+body .about-personal .about-copy p:not(.about-lead) { font-size: 16px; line-height: 1.85; }
+body .about-personal .about-copy p.about-study-note { font-size: 12px; color: var(--muted); }
+body .about-personal .about-facts { flex-wrap: wrap; }
+body .about-personal .about-facts > div > span { font-size: 14px; }
+body .about-personal .about-facts small { font-size: 11px; color: var(--muted); letter-spacing: .05em; }
+body .about-personal .portrait-coordinate, body .about-personal .portrait-brand-tagline { font-size: 11px; }
+body .about-personal .portrait-nameplate span span { font-size: 13px; color: var(--muted); }
+body .about-personal .portrait-bottom { font-size: 10px; color: var(--muted); flex-wrap: wrap; }
+body .about-personal .discipline-panel-top > .mono { font-size: 11px; }
+body .about-personal .discipline-panel p { font-size: 15px; }
+body .about-personal .discipline-foot { font-size: 10px; color: var(--muted); }
+body .about-personal .personal-notes-intro > .mono, body .about-personal .personal-note-meta > .mono, body .about-personal .personal-values > .mono { font-size: 11px; }
+body .about-personal .personal-note-meta > .personal-note-index { color: var(--muted); }
+body .about-personal .personal-note p, body .about-personal .personal-notes-intro > p:not(.mono) { font-size: 15px; }
+body .about-personal .personal-values li { font-size: 13px; }
+
+body .projects-section .project-overview, body .projects-section .project-full-title { font-size: 15px; color: var(--muted); line-height: 1.8; }
+body .projects-section .project-card-meta, body .projects-section .project-card-footer { font-size: 11px; color: var(--muted); }
+body .projects-section .project-card-tags .tag { font-size: 12px; }
+body .projects-section .project-card-footer > a { font-size: 13px; }
+body .projects-section .project-card-footer { flex-wrap: wrap; }
+body .projects-section .projects-editorial-note, body .projects-section .projects-honesty-note { font-size: 11px; color: var(--muted); }
+body .projects-section .projects-honesty-note span { font-size: 13px; }
+body .case-study .case-facts > div > span, body .case-study .case-story-number { font-size: 11px; }
+body .case-study .case-facts strong { font-size: 14px; }
+body .case-study .case-story-content p, body .case-study .case-story-sidebar p:last-child { font-size: 16px; }
+body .case-study .case-full-title, body .case-study .capability-card p { font-size: 15px; }
+body .case-footer { font-size: 12px; flex-wrap: wrap; }
+
+body .analytics-section .analytics-body, body .analytics-section .analytics-workflow-step p { font-size: 15px; line-height: 1.85; }
+body .analytics-section .analytics-tool-list > span, body .analytics-section .analytics-flow > div > span { font-size: 13px; }
+body .analytics-section .analytics-workspace-bar > .mono, body .analytics-section .analytics-blueprint-label,
+body .analytics-section .analytics-question-tags > span, body .analytics-section .analytics-flow > div > small,
+body .analytics-section .analytics-blueprint-foot > .mono, body .analytics-section .analytics-blueprint-foot > span:last-child,
+body .analytics-section .analytics-workspace-status, body .analytics-section .analytics-step-top .mono { font-size: 11px; line-height: 1.6; }
+body .analytics-section .analytics-flow > div > small, body .analytics-section .analytics-workspace-status,
+body .analytics-section .analytics-blueprint-foot > .mono { color: var(--muted); }
+body .video-section .creative-practice-note p { font-size: 15px; }
+body .video-section .creative-practice-note > div > .mono { font-size: 11px; }
+body .video-section .creative-skill-list .tag { font-size: 12px; }
+
+body .personal-journey .journey-content > p:last-child { font-size: 15px; }
+body .personal-journey .journey-content > .journey-organization { font-size: 14px; }
+body .personal-journey .journey-period, body .personal-journey .journey-note, body .personal-journey .journey-dates,
+body .personal-journey .experience-index, body .personal-journey .experience-heading > span { font-size: 11px; }
+body .personal-journey .journey-note { line-height: 1.8; flex-wrap: wrap; }
+body .personal-journey .journey-dates { color: var(--muted); }
+body .personal-journey .experience-heading > p, body .personal-journey .experience-card > .experience-role { font-size: 14px; }
+body .personal-journey .experience-card > p:not(.experience-role) { font-size: 15px; }
+body .personal-journey .experience-focus { font-size: 12px; line-height: 1.7; }
+
+body .contact-section .contact-location { font-size: 12px; }
+body .contact-section .contact-location small { font-size: 11px; }
+body .contact-section .contact-socials a { font-size: 14px; }
+body .contact-section .contact-form-heading { font-size: 12px; letter-spacing: .06em; }
+body .contact-section .contact-field label { font-size: 14px; }
+body .contact-section .contact-field input, body .contact-section .contact-field textarea { font-size: 16px; }
+body .contact-section .contact-field input { height: 48px; }
+body .contact-section .contact-delivery-note, body .contact-section .contact-field-error, body .contact-section .contact-alternatives button { font-size: 13px; }
+body .contact-section .contact-feedback, body .contact-section .contact-submit { font-size: 14px; }
+body .site-footer .footer-brand-tagline, body .site-footer .back-top, body .site-footer .footer-bottom { font-size: 11px; line-height: 1.8; }
+body .site-footer .footer-nav a { font-size: 13px; }
+body .site-footer .footer-top > .footer-brand-description { font-size: 14px; }
+body .loader-tagline { font-size: 11px; }
+body .loader-caption { font-size: 13px; }
+
+@media (max-width: 1359px) and (min-width: 1080px) {
+  body .site-header .desktop-nav { gap: 14px; }
+  body .site-header .nav-shell { gap: 14px; }
+}
+@media (max-width: 760px) {
+  body .hero-personal .hero-topline { flex-wrap: wrap; gap: 8px; }
+  body .hero-personal .hero-topline > span:last-child { display: none; }
+  body .hero-personal .hero-eyebrow { font-size: 10px; }
+  body .hero-personal .identity-role { font-size: 14px; }
+  body .site-footer .footer-bottom { flex-direction: column; gap: 12px; }
+  body .site-header .nav-cta { font-size: 11px; padding-inline: 10px; gap: 8px; }
+}
+@media (max-width: 420px) {
+  body .site-header .nav-shell { gap: 8px; }
+  body .site-header .nav-actions { gap: 6px; }
+  body .site-header .nav-cta { padding-inline: 8px; }
+  body .site-header .nav-cta > svg { display: none; }
+  body .analytics-section .analytics-flow { flex-wrap: wrap; row-gap: 18px; }
+  body .analytics-section .analytics-flow > div { flex-basis: 24%; }
+  body .about-personal .portrait-coordinate, body .about-personal .portrait-brand-tagline { left: 16px; font-size: 10px; }
+}

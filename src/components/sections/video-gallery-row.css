@@ -1,0 +1,26 @@
+/* Keep video cards in one accessible, horizontally scrollable row. */
+.video-section .video-gallery {
+  display: grid;
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: min(86vw, 480px);
+  grid-template-rows: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 24px;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 5px;
+  padding: 5px 5px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-periwinkle) var(--line);
+}
+.video-section .video-gallery:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 6px; }
+.video-section .video-gallery::-webkit-scrollbar { height: 7px; }
+.video-section .video-gallery::-webkit-scrollbar-track { background: var(--line); border-radius: 10px; }
+.video-section .video-gallery::-webkit-scrollbar-thumb { background: var(--brand-periwinkle); border-radius: 10px; }
+.video-section .video-card { scroll-snap-align: start; }
+.video-row-hint { margin: -8px 0 14px; color: var(--muted); font-size: 10px; text-align: right; }
+.video-row-hint span { color: var(--cyan); font-size: 16px; margin-left: 5px; }
+@media (max-width: 760px) { .video-section .video-gallery { gap: 16px; } }

@@ -1,14 +1,15 @@
 import Image from "next/image";
-import { ArrowUpRight, ChartNoAxesCombined, CircleDot, Code2, Film, GraduationCap, Guitar, HandHeart, MapPin, ScanLine, Store } from "lucide-react";
+import { ArrowUpRight, ChartNoAxesCombined, CircleDot, Code2, Film, GraduationCap, Guitar, HandHeart, MapPin, Store } from "lucide-react";
 import { disciplines, personalDetails, personalValues, profile } from "@/data/portfolio";
 import { Reveal, SectionHeading } from "@/components/ui/reveal";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import "./about-personal.css";
 
 const disciplineIcons = { development: Code2, analytics: ChartNoAxesCombined, creative: Film };
 const personalIcons = { faith: HandHeart, music: Guitar, basketball: CircleDot, business: Store };
 
 export function About() {
-  return <section id="about" tabIndex={-1} className="section about-section about-personal"><div className="container">
+  return <div className="about-section about-personal"><div className="container">
     <SectionHeading number="01" eyebrow="A LITTLE MORE ABOUT ME" title={<>Friends call me Derick.<br /><span className="text-muted">Here’s the person behind the work.</span></>} />
 
     <div className="about-grid">
@@ -16,9 +17,9 @@ export function About() {
         <div className="portrait-frame">
           {profile.portrait ? <Image src={profile.portrait} alt={profile.portraitAlt} fill sizes="(max-width: 760px) 90vw, 410px" className="portrait-image" /> : <>
             <div className="portrait-grid" />
-            <div className="portrait-monogram" aria-hidden="true">d<span>b</span><i>.</i></div>
+            <BrandLogo variant="card" />
             <span className="portrait-coordinate mono">CALOOCAN CITY / PH</span>
-            <span className="portrait-placeholder mono"><ScanLine size={14} /> PORTRAIT TO COME</span>
+            <span className="portrait-brand-tagline mono">Code. Data. Create.</span>
           </>}
           <div className="portrait-nameplate"><span><strong>{profile.displayName}</strong><span>Developer. Analytical mind. Creative.</span></span><ArrowUpRight size={23} /></div>
         </div>
@@ -28,6 +29,7 @@ export function About() {
         <p className="about-lead">Practical by nature.<br /><span className="gradient-text">Creative by instinct.</span></p>
         <p>{profile.biography}</p>
         <p>{profile.approach}</p>
+        <p>{profile.enrollmentProject}</p>
         <div className="about-facts">
           <div><MapPin size={17} /><span><small>BASED IN</small>{profile.location}</span></div>
           <div><GraduationCap size={19} /><span><small>STUDYING AT GRC</small>{profile.education}</span></div>
@@ -59,5 +61,5 @@ export function About() {
     </div>
 
     <Reveal className="personal-values"><span className="mono">WHAT I COME BACK TO</span><ul aria-label="Personal values">{personalValues.map(value => <li key={value}>{value}</li>)}</ul></Reveal>
-  </div></section>;
+  </div></div>;
 }

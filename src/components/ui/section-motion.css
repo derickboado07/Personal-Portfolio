@@ -1,0 +1,34 @@
+/* Word masks preserve the existing type scale, wrapping, and explicit line breaks. */
+.section-text-reveal, .section-text-visual { display: inline; }
+.section-word-mask {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: bottom;
+  padding-block: .045em .17em;
+  margin-block: -.045em -.17em;
+}
+.section-word-mask > [data-motion-word] { display: inline-block; }
+
+/* SSR remains visible; there is deliberately no initial hidden CSS state. */
+@media (prefers-reduced-motion: reduce) {
+  [data-text-reveal] [data-motion-word],
+  [data-text-reveal] [data-motion-label],
+  [data-text-reveal] [data-motion-copy],
+  [data-text-reveal] [data-motion-visual],
+  [data-text-reveal] [data-motion-cta] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* A restrained tracking change is reserved for small editorial labels. */
+.section-kicker > span:nth-child(2) {
+  transition: color .3s ease, letter-spacing .4s cubic-bezier(.22, 1, .36, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .section-kicker:hover > span:nth-child(2) { color: var(--brand-lavender); letter-spacing: .11em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-kicker > span:nth-child(2) { transition: none; }
+}

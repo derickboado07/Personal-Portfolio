@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Braces, CodeXml } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CodeXml } from "lucide-react";
 import { projects, profile } from "@/data/portfolio";
 import { ProjectPreview } from "@/components/ui/project-preview";
 import { ProjectGallery } from "@/components/ui/project-gallery";
 import { Reveal } from "@/components/ui/reveal";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import "@/components/sections/projects.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -24,7 +26,7 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
   const nextProject = projects[(projects.indexOf(project) + 1) % projects.length];
   return <>
-    <header className="case-nav container"><Link href="/" className="case-brand" aria-label="Derick Boado home"><Braces size={23} /><span>DERICK<span>CODE / DATA / CREATE</span></span></Link><Link href="/#projects" className="case-back"><ArrowLeft size={15} /> All projects</Link></header>
+    <header className="case-nav container"><Link href="/" className="brand brand-home" aria-label="DBCreates — Derick Boado, home"><BrandLogo variant="navigation" /></Link><div className="case-nav-actions"><ThemeToggle /><Link href="/#projects" className="case-back"><ArrowLeft size={15} /> All projects</Link></div></header>
     <main id="main-content" className={`case-study case-study-${project.accent}`}>
       <section className="container case-intro"><Reveal><p className="section-kicker">PROJECT {project.number} / {project.category}</p><h1>{project.shortTitle}</h1><p className="case-full-title">{project.title}</p><p className="case-description">{project.overview}</p><div className="case-facts"><div><span>ROLE</span><strong>{project.role}</strong></div><div><span>STATUS</span><strong><i /> {project.status}</strong></div><div><span>FOCUS / TECHNOLOGY</span><div className="project-card-tags">{project.technologies.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div></div></div></Reveal></section>
       <div className="container"><Reveal><ProjectPreview project={project} large /></Reveal></div>

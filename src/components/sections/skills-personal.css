@@ -1,8 +1,110 @@
+/* A distinct workspace surface gives the toolkit a clear place on the page. */
+.personal-skills .toolkit-window {
+  border: 1px solid #8f9cc75c;
+  border-radius: 14px;
+  background: #182136;
+  box-shadow: 0 20px 55px #03071359, 0 1px 0 #ffffff0c inset;
+}
+.personal-skills .toolkit-top { background: #202b42; border-bottom-color: #8493b43d; }
 .personal-skills .toolkit-tabs { min-width: 0; }
-.personal-skills .toolkit-tabs button { padding-inline: 21px; gap: 10px; }
+.personal-skills .toolkit-tabs button {
+  min-height: 60px;
+  padding: 18px 22px;
+  gap: 10px;
+  border-right-color: #8493b433;
+  color: #bdc9e0;
+  font-size: 13px;
+  transition: background .2s, color .2s;
+}
+.personal-skills .toolkit-tabs button:hover { background: #ffffff08; color: #fff; }
+.personal-skills .toolkit-tabs button[aria-selected="true"] { background: #332c58; color: #f0eaff; }
+.personal-skills .toolkit-tabs button[aria-selected="true"]::before { height: 3px; background: #b8a5ff; }
 .personal-skills .skill-tab-short { display: none; }
 .personal-skills .tab-dot { margin-left: 5px; }
-.personal-skills .toolkit-body { min-height: 350px; }
-@media (max-width: 1100px) { .personal-skills .toolkit-top { padding-right: 0; }.personal-skills .toolkit-caption { display: none; }.personal-skills .toolkit-tabs { flex: 1; }.personal-skills .toolkit-tabs button { flex: 1; justify-content: center; padding-inline: 18px; } }
-@media (max-width: 760px) { .personal-skills .toolkit-tabs button { padding: 17px 13px; font-size: 11px; gap: 8px; }.personal-skills .skill-tab-file { display: none; }.personal-skills .skill-tab-short { display: inline; }.personal-skills .toolkit-body { min-height: 380px; }.personal-skills .tab-dot { margin-left: 3px; } }
-@media (max-width: 359px) { .personal-skills .toolkit-tabs button { padding: 16px 8px; font-size: 10px; gap: 6px; }.personal-skills .toolkit-tabs button svg { width: 13px; }.personal-skills .tab-dot { width: 3px; height: 3px; margin-left: 1px; } }
+.personal-skills .toolkit-caption { color: #c0cce1; font-size: 11px; }
+.personal-skills .toolkit-body {
+  min-height: 0;
+  padding: 28px;
+  background: radial-gradient(ellipse at 100% 0, #6d5ef80f, transparent 60%), #151e31;
+}
+.personal-skills .toolkit-comment { color: #bdc9e0; font-size: 13px; line-height: 1.8; margin-bottom: 22px; letter-spacing: .015em; }
+.personal-skills .toolkit-comment > span { color: #c3b1ff; }
+.personal-skills .skill-tracks { display: grid; gap: 14px; }
+.personal-skills .skill-track {
+  margin: 0;
+  padding: 19px 20px;
+  border: 1px solid #7183ab38;
+  border-radius: 9px;
+  background: #202c43;
+  box-shadow: 0 1px 0 #ffffff05 inset;
+}
+.personal-skills .track-index { width: 34px; font-size: 12px; color: #b7c4de; border-color: #8493b433; padding-top: 1px; }
+.personal-skills .skill-track-content { padding-left: 20px; }
+.personal-skills .skill-track-content h3 { font-size: 11px; font-weight: 500; color: #c2cde1; margin-bottom: 13px; letter-spacing: .07em; }
+.personal-skills .skill-tags { gap: 9px; }
+.personal-skills .skill-chip {
+  max-width: 100%;
+  padding: 9px 13px;
+  border: 1px solid #a591ee70;
+  border-radius: 6px;
+  background: #443873;
+  color: #eee7ff;
+  font-size: 14px;
+  line-height: 1.45;
+  gap: 9px;
+}
+.personal-skills .skill-chip.chip-1 { background: #174652; border-color: #4bb5c880; color: #c7f2fb; }
+.personal-skills .skill-chip.chip-2 { background: #35435c; border-color: #9cadce60; color: #eef3ff; }
+.personal-skills .skill-chip-dot { opacity: .85; }
+.personal-skills .track-end { color: #99a8c3; margin-left: 12px; width: 22px; }
+.personal-skills .toolkit-status { flex-wrap: wrap; gap: 12px 20px; padding: 16px 24px; border-top-color: #8493b43d; background: #202b42; color: #c0cce1; font-size: 11px; letter-spacing: .045em; }
+.personal-skills .portfolio-stack { color: #b5c2da; font-size: 13px; line-height: 1.8; padding-top: 23px; }
+.personal-skills .portfolio-stack strong { color: #e0e6f3; }
+
+html[data-theme="light"] .personal-skills .toolkit-window { background: #fff; border-color: #7b78b450; box-shadow: 0 18px 48px #293b5a17, 0 1px 0 #fff inset; }
+html[data-theme="light"] .personal-skills .toolkit-top,
+html[data-theme="light"] .personal-skills .toolkit-status { background: #e9edf7; border-color: #53638530; }
+html[data-theme="light"] .personal-skills .toolkit-tabs button { color: #495b79; border-right-color: #53638530; }
+html[data-theme="light"] .personal-skills .toolkit-tabs button:hover { background: #dfe3f2; color: #44368a; }
+html[data-theme="light"] .personal-skills .toolkit-tabs button[aria-selected="true"] { background: #ded8f5; color: #4d3899; }
+html[data-theme="light"] .personal-skills .toolkit-tabs button[aria-selected="true"]::before { background: #7960cb; }
+html[data-theme="light"] .personal-skills .toolkit-caption,
+html[data-theme="light"] .personal-skills .toolkit-comment,
+html[data-theme="light"] .personal-skills .toolkit-status,
+html[data-theme="light"] .personal-skills .portfolio-stack { color: #4b5e7a; }
+html[data-theme="light"] .personal-skills .toolkit-body { background: #f5f7fc; }
+html[data-theme="light"] .personal-skills .skill-track { background: #fff; border-color: #6b7c9e38; box-shadow: 0 3px 12px #25395806; }
+html[data-theme="light"] .personal-skills .track-index,
+html[data-theme="light"] .personal-skills .skill-track-content h3 { color: #4b5e7a; border-color: #53638530; }
+html[data-theme="light"] .personal-skills .skill-chip { background: #e7e0fa; border-color: #8d75cc70; color: #513593; }
+html[data-theme="light"] .personal-skills .skill-chip.chip-1 { background: #dceff3; border-color: #39869b65; color: #175b6e; }
+html[data-theme="light"] .personal-skills .skill-chip.chip-2 { background: #e8edf6; border-color: #7383a360; color: #354c6c; }
+html[data-theme="light"] .personal-skills .track-end { color: #6b7c98; }
+html[data-theme="light"] .personal-skills .portfolio-stack strong { color: #293b58; }
+
+@media (max-width: 1100px) {
+  .personal-skills .toolkit-top { padding-right: 0; }
+  .personal-skills .toolkit-caption { display: none; }
+  .personal-skills .toolkit-tabs { flex: 1; }
+  .personal-skills .toolkit-tabs button { flex: 1; justify-content: center; padding-inline: 18px; }
+}
+@media (max-width: 760px) {
+  .personal-skills .toolkit-tabs button { padding: 16px 12px; font-size: 13px; gap: 7px; }
+  .personal-skills .skill-tab-file { display: none; }
+  .personal-skills .skill-tab-short { display: inline; }
+  .personal-skills .toolkit-body { padding: 22px 14px; }
+  .personal-skills .toolkit-comment { font-size: 12px; }
+  .personal-skills .skill-track { padding: 17px 14px; }
+  .personal-skills .track-index { display: none; }
+  .personal-skills .skill-track-content { padding-left: 0; }
+  .personal-skills .skill-chip { font-size: 13px; padding: 9px 11px; gap: 8px; }
+  .personal-skills .tab-dot { margin-left: 2px; }
+  .personal-skills .toolkit-status { padding: 15px 18px; font-size: 11px; }
+  .personal-skills .portfolio-stack { align-items: flex-start; font-size: 13px; }
+}
+@media (max-width: 359px) {
+  .personal-skills .toolkit-tabs button { padding: 16px 8px; font-size: 12px; gap: 5px; }
+  .personal-skills .toolkit-tabs button svg { width: 14px; }
+  .personal-skills .tab-dot { display: none; }
+  .personal-skills .skill-track { padding: 16px 12px; }
+}

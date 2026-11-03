@@ -1,0 +1,39 @@
+/* Equal-sized, overlapping labels keep the button stable throughout the hand-off. */
+.magnetic-text-button .magnetic-text-label {
+  display: inline-grid;
+  overflow: clip;
+  line-height: 1.4;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.magnetic-text-copy {
+  display: block;
+  grid-area: 1 / 1;
+  transition: transform .48s cubic-bezier(.22, 1, .36, 1);
+}
+.magnetic-text-duplicate { transform: translateY(110%); }
+.magnetic-text-arrow {
+  display: inline-flex;
+  flex: none;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.magnetic-text-button:hover .magnetic-text-arrow > svg,
+.magnetic-text-button:focus-visible .magnetic-text-arrow > svg { transform: none; }
+.magnetic-text-button:focus-visible .magnetic-text-primary { transform: translateY(-110%); }
+.magnetic-text-button:focus-visible .magnetic-text-duplicate { transform: translateY(0); }
+.magnetic-text-button:focus-visible .magnetic-text-arrow { transform: translate(2px, -2px); }
+
+@media (hover: hover) and (pointer: fine) {
+  .magnetic-text-button:hover .magnetic-text-primary { transform: translateY(-110%); }
+  .magnetic-text-button:hover .magnetic-text-duplicate { transform: translateY(0); }
+  .magnetic-text-button:hover .magnetic-text-arrow { transform: translate(2px, -2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-text-copy, .magnetic-text-arrow { transition: none; }
+  .magnetic-text-button:hover .magnetic-text-primary,
+  .magnetic-text-button:focus-visible .magnetic-text-primary,
+  .magnetic-text-button:hover .magnetic-text-arrow,
+  .magnetic-text-button:focus-visible .magnetic-text-arrow { transform: none; }
+  .magnetic-text-button:hover .magnetic-text-duplicate,
+  .magnetic-text-button:focus-visible .magnetic-text-duplicate { transform: translateY(110%); }
+}

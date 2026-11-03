@@ -1,0 +1,94 @@
+/* Theme control stays available beside the mobile menu, too. */
+.theme-toggle { position: relative; flex-shrink: 0; border-radius: 50%; background: var(--surface); transition: background .2s, border-color .2s, transform .2s; }
+.theme-toggle:hover { border-color: var(--brand-lavender); transform: translateY(-1px); }
+.theme-icon { position: absolute; transition: opacity .2s, transform .3s; }
+.theme-icon-sun { color: #f4cb86; }
+.theme-icon-moon { opacity: 0; transform: rotate(-45deg) scale(.65); }
+html[data-theme="light"] .theme-icon-sun { opacity: 0; transform: rotate(45deg) scale(.65); }
+html[data-theme="light"] .theme-icon-moon { opacity: 1; transform: rotate(0) scale(1); color: var(--accent); }
+.desktop-nav { gap: 18px; }
+.desktop-nav a { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.desktop-nav a > svg { display: block; width: 14px; height: 14px; flex-shrink: 0; opacity: .85; transition: color .2s ease, opacity .2s ease; }
+.desktop-nav a.active > svg, .desktop-nav a:hover > svg { color: var(--cyan); opacity: 1; }
+.nav-cta { white-space: nowrap; }
+.nav-actions { flex-shrink: 0; }
+.mobile-menu nav a > .mobile-nav-icon { margin-left: 0; color: var(--brand-lavender); }
+.case-nav-actions { display: flex; align-items: center; gap: 20px; }
+
+/* Shared initial splash and route-loading screen. */
+.app-loader { position: fixed; inset: 0; z-index: 200; opacity: 1; transition: opacity .36s ease, visibility .36s ease; }
+.app-loader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.loading-screen { display: grid; place-items: center; min-height: 100svh; width: 100%; padding: 32px; background: var(--background); color: var(--foreground); }
+.app-loader .loading-screen { position: absolute; inset: 0; min-height: 100%; }
+.loader-content { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.loader-emblem { position: relative; display: grid; place-items: center; width: 224px; height: 224px; border-radius: 50%; background: radial-gradient(circle, #6d5ef814, transparent 70%); }
+.loader-orbit { position: absolute; inset: 0; border: 1px solid var(--line); border-top-color: var(--brand-lavender); border-right-color: #6d5ef866; border-radius: 50%; animation: loader-orbit 2.8s linear infinite; }
+.loader-orbit::after { content: ""; position: absolute; top: 31px; right: 31px; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 15px var(--cyan); }
+.loader-orbit-inner { inset: 12px; border-top-color: transparent; border-right-color: var(--cyan); opacity: .4; animation: loader-orbit 4.5s linear infinite reverse; }
+.loader-orbit-inner::after { display: none; }
+.loader-logo { display: grid; place-items: center; width: 160px; min-height: 100px; animation: loader-breathe 2s ease-in-out infinite; }
+.brand-logo--loading { width: 160px; height: 100px; }
+.brand-logo--loading .brand-artwork { object-position: center; }
+.loader-fallback-mark { font-size: 100px; font-weight: 600; letter-spacing: -.12em; line-height: 1; padding-right: .12em; }
+.loader-tagline { color: var(--brand-lavender); font-size: 9px; letter-spacing: .24em; margin-top: 30px; }
+.loader-track { width: 160px; height: 2px; margin-top: 26px; overflow: hidden; border-radius: 2px; background: var(--line); }
+.loader-track > span { display: block; width: 50%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--cyan)); animation: loader-track 1.5s ease-in-out infinite; }
+.loader-caption { display: flex; align-items: center; gap: 7px; margin-top: 16px; font-size: 11px; color: var(--muted); }
+.loader-dots { display: flex; gap: 3px; }
+.loader-dots i { width: 3px; height: 3px; background: currentColor; border-radius: 50%; animation: loader-dot 1.2s ease-in-out infinite; }
+.loader-dots i:nth-child(2) { animation-delay: .15s; }
+.loader-dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes loader-orbit { to { transform: rotate(360deg); } }
+@keyframes loader-breathe { 50% { opacity: .65; transform: scale(.97); } }
+@keyframes loader-track { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+@keyframes loader-dot { 50% { opacity: .3; transform: translateY(-2px); } }
+
+@media (min-width: 1080px) and (max-width: 1359px) {
+  .site-header .nav-shell .desktop-nav { gap: 10px; }
+  .nav-shell { gap: 18px; }
+}
+@media (max-width: 760px) {
+  .theme-toggle { width: 36px; height: 36px; }
+  .nav-actions { gap: 8px; }
+  .case-nav-actions { gap: 12px; }
+}
+@media (max-width: 420px) {
+  .site-header .brand-words { display: none; }
+}
+@media (max-width: 359px) {
+  .nav-actions { gap: 6px; }
+  .nav-shell { gap: 8px; }
+  .nav-cta { gap: 6px; font-size: 9px; padding-inline: 8px; }
+  .brand-words strong { font-size: 10px; }
+  .brand-words > span { font-size: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-loader, .theme-toggle, .theme-icon { transition: none; }
+  .loader-orbit, .loader-logo, .loader-track > span, .loader-dots i { animation: none; }
+}
+
+
+
+/* Label-only underline leaves the existing active-location marker intact. */
+.site-header .nav-label { position: relative; display: inline-block; }
+.site-header .nav-label::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -4px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--brand-lavender), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.site-header nav a:focus-visible .nav-label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.site-header .desktop-nav a:focus-visible > svg { color: var(--cyan); opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .site-header nav a:hover .nav-label::after { transform: scaleX(1); transform-origin: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav-label::after, .desktop-nav a > svg { transition: none; }
+}
